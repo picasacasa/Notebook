@@ -16,7 +16,7 @@ def get_title_dict(text):
     fdict = dict(F)
     return fdict
 
-f0 = open('/home/wangshi/下载/02905_0','r')
+f0 = open('02905_0','r')
 
 # 清除文本中的空格等，按换行符切分list
 f1 = f0.read().replace('\n  主账户：','  主账户：').replace('\n  虚拟账号：','  虚拟账号：').replace('\n  开户行机构号','  开户行机构号').split('\n')
@@ -81,7 +81,6 @@ for i in range(0,len(DATA[1])):
     DATAT.append([])
     DATAT[counts] = pd.DataFrame(DATA[1][counts],columns=["类型","记录日","记账日","凭证号码/业务编号","交易流水号","摘要","对方账号","对方户名","借方发生额","贷方发生额"])
 
-get_ipython().magic('time')
 for i in range(0,len(DATA[0])):
     DATAT[i].to_excel(DATA[0][i][0]['虚拟账号'] + '_' + DATA[0][i][0]['账户名称'] + '_期初余额' + DATA[0][i][0]['期初余额'] + '_期末余额' + DATA[0][i][0]['期末余额'] + '.xlsx', sheet_name = DATA[0][i][0]['虚拟账号'] + '_' + DATA[0][i][0]['账户名称'])
 
@@ -89,4 +88,3 @@ for i in range(0,len(DATA[0])):
 end_time = datetime.now()
 print('\n' + 'USED ' + str((end_time - start_time).seconds) + ' seconds!')
 print('\n' + str(datetime.now()))
-
