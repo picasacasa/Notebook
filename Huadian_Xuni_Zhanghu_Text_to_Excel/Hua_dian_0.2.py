@@ -4,6 +4,7 @@ from datetime import datetime
 start_time = datetime.now()
 import pandas as pd
 
+# 处理标题
 def get_title_dict(text):
     # f1 = f0.read().replace('\n','').strip( )
     f = ' '.join(text.split()).split()
@@ -46,6 +47,7 @@ for i in range(len(f1)-1,-1,-1):
     else:
         pass
 
+# 每条数据两行合并为一行
 for i in range(len(f1)-1,-1,-1):
     if type(f1[i]) != dict and f1[i][1] == '' and f1[i-1][1] != '':
         f1[i-1][5] = f1[i-1][5] + f1[i][5]
